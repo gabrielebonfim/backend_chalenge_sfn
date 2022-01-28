@@ -1,6 +1,7 @@
 def article_entity(item) -> dict:
     return {
-        "id": str(item["_id"]),
+        "_id": str(item["_id"]),
+        "id": item["id"],
         "title": item["title"],
         "url": item["url"],
         "imageUrl": item["imageUrl"],

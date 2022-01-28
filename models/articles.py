@@ -1,9 +1,8 @@
-from typing import Optional
-from pydantic import BaseModel
+from typing import Optional, List, Union
+from pydantic import BaseModel, Field
 
 
-class Article(BaseModel):
-    id: Optional[str]
+class ArticleIn(BaseModel):
     title: str
     url: str
     imageUrl: str
@@ -12,7 +11,21 @@ class Article(BaseModel):
     publishedAt: str
     updatedAt: str
     featured: bool
-    launches: Optional[list]
-    events: Optional[list]
+    launches: Optional[list] = Field([{'id': "string", 'provider': "string"}])
+    events: Optional[list] = Field([{'id': "string", 'provider': "string"}])
 
+
+class ArticleOut(BaseModel):
+    mongo_id: Optional[str] = Field(alias='_id')
+    id: Optional[int] = Field(alias='id')
+    title: str
+    url: str
+    imageUrl: str
+    newsSite: str
+    summary: str
+    publishedAt: str
+    updatedAt: str
+    featured: bool
+    launches: Optional[list] = Field([{'id': "string", 'provider': "string"}])
+    events: Optional[list] = Field([{'id': "string", 'provider': "string"}])
 
