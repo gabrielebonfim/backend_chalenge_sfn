@@ -1,26 +1,28 @@
 from fastapi import FastAPI
-from routes.articles import article
-from restore_data.utils import restore_data_from_api
 
-app = FastAPI()
+from restore_data.restore_data import RestoreData
+from routes.root import ROOT
+from routes.articles import ARTICLE
+from settings.db import COLLECTIONS
 
-"""
-API ROUTES
-"""
+APP = FastAPI()
 
-app.include_router(article)
+
+API_ROUTES = [
+    APP.include_router(ROOT),
+    APP.include_router(ARTICLE)
+]
 
 
 """
 Restoring the data from Space Flight News API for the first time.
 Restaurando os dados do Space Flight News API pela primeira vez.
 """
-url = 'https://api.spaceflightnewsapi.net/v3/articles'
-restore_data_from_api(url)
+ARTICLES = RestoreData(COLLECTIONS["articles"], 'https://api.spaceflightnewsapi.net/v3/articles').restore()
 
 
 """
 CRON
-Initizalized at every 9 hours to update data.
-Inicializado a cada 9 horas para atualizar os dados.
+Initizalized at 9:00AM (UTC-3) every day to update data.
+Inicializado às 9:00AM (UTC-3) todos os dias para atualizar os dados.
 """
