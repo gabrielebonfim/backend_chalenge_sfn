@@ -6,7 +6,17 @@ from routes.root import ROOT
 from routes.articles import ARTICLE
 from settings.db import COLLECTIONS
 
-APP = FastAPI()
+APP = FastAPI(
+    title='Back-end Challenge 🏅 2021 - Space Flight News 🇧🇷',
+    description='A Rest API created using data from Space Flight News API. | '
+                'Uma API Rest criada usando dados da API Space Flight News. '
+                'Created by Gabriele Alves.',
+    version='0.0.1',
+    contact={
+        "name": "Repository",
+        "url":  "https://github.com/gabrielebonfim/backend_chalenge_sfn",
+    }
+)
 
 API_ROUTES = [
     APP.include_router(ROOT),

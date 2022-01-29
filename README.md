@@ -8,8 +8,9 @@ Uma API Rest criada usando dados da API [Space Flight News](https://api.spacefli
 *   MongoDB - Atlas
 
 ### Principais frameworks
-*   FastAPI [0.73.0]
-*   Pymongo [4.0.1]
+* FastAPI [0.73.0]
+* Pymongo [4.0.1]
+* Advanced Python Scheduler [3.8.1]
 *****
 ### Instruções para instalação
 1.   Certifique-se que possui instalado o Python e o Pip em seu dispositivo.
@@ -40,7 +41,7 @@ Uma API Rest criada usando dados da API [Space Flight News](https://api.spacefli
 
 
 
-> This is a challenge by Coodesh
+> This is a challenge by [Coodesh](https://coodesh.com/)
 
 
 

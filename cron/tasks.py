@@ -1,6 +1,5 @@
 from cron.scheduler import start
 from restore_data.restore_data import RestoreData
-from schemas.articles import articles_entity
 from settings.db import COLLECTIONS
 
 
